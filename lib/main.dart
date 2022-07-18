@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homewidget_sample_flutter/bridge_android.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  Future<void> _incrementCounter() async {
+    await updateAppWidget();
     setState(() {
       _counter++;
     });
