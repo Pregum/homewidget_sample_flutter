@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:homewidget_sample_flutter/bridge_android.dart';
 
 void main() {
@@ -33,10 +34,23 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   Future<void> _incrementCounter() async {
-    await updateAppWidget();
+    await updateAndroidAppWidget();
     setState(() {
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // HomeWidget.registerBackgroundCallback(
+    //   (uri) => _handleOnClickAppWidgetButton(uri!),
+    // );
+  }
+
+  void _handleOnClickAppWidgetButton(Uri data) {
+    setState(() => {_counter++});
   }
 
   @override

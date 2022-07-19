@@ -41,5 +41,13 @@
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/sample_widget_config" />
         </receiver>
+       <receiver android:name="es.antonborri.home_widget.HomeWidgetBackgroundReceiver"
+           android:exported="true" >
+           <intent-filter>
+               <action android:name="es.antonborri.home_widget.action.BACKGROUND" />
+           </intent-filter>
+       </receiver>
+       <service android:name="es.antonborri.home_widget.HomeWidgetBackgroundService"
+           android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
     </application>
 </manifest>
